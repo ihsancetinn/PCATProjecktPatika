@@ -1,0 +1,22 @@
+{
+  "name": "pcat",
+  "version": "1.0.0",
+  "description": "pcatapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihsancetinn/PCATProjecktPatika.git"
+  },
+  "author": "ihsan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ihsancetinn/PCATProjecktPatika/issues"
+  },
+  "homepage": "https://github.com/ihsancetinn/PCATProjecktPatika#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}
