@@ -47,7 +47,7 @@
                     
                     <div class="row tm-catalog-item-list">
 
-                  <% for(let i =0;i<photos.length; i++){ %>
+                  <% for(let i =0;i<posts.length; i++){ %>
 
 
                         <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
@@ -58,8 +58,8 @@
                                 </a>
                             </div>    
                             <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title"><%= photos[i].title %></h3>
-                                <p class="tm-catalog-item-text"><%= photos[i].description %></p>
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title"><%= photo[i].title %></h3>
+                                <p class="tm-catalog-item-text"><%= photo[i].description %></p>
                             </div>
                         </div>                      
                            <% } %>
