@@ -53,7 +53,7 @@ app.post('/photos', async (req, res) => {
 
   // Yakaladığımız dosyayı .mv metodu ile yukarda belirlediğimiz path'a taşıyoruz. Dosya taşıma işlemi sırasında hata olmadı ise req.body ve içerisindeki image'nin dosya yolu ve adıyla beraber database kaydediyoruz
   uploadeImage.mv(uploadPath, async (err) => {
-    if (err) console.log(err);    // Bu kısımda önemli olan add.ejs'nin içerisine form elemanı olarak encType="multipart/form-data" atribute eklemek
+    if (err) console.log(err); // Bu kısımda önemli olan add.ejs'nin içerisine form elemanı olarak encType="multipart/form-data" atribute eklemek
     await photo.create({
       ...req.body,
       image: '/uploads/' + uploadeImage.name,
@@ -61,8 +61,17 @@ app.post('/photos', async (req, res) => {
   });
   res.redirect('/');
 });
+app.get('/photos/edit/:id', async (req, res) => {
+  const photograp = await photo.findOne({ _id: req.params.id });
+  res.render('edit', {
+    photograp,
+  });
+});
 
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server ${port} portunda dinleniyor`);
 });
+
+
+//8:30 
