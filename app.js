@@ -2,6 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload');
+const methodOverride = require('method-override');
 
 const path = require('path');
 const fs = require('fs');
@@ -21,6 +22,7 @@ app.use(express.static('public')); // Static dosyaları koyacağımız klasörü
 app.use(express.urlencoded({ extended: true })); // Body parser
 app.use(express.json()); // Body parser
 app.use(fileUpload());
+app.use(methodOverride('_method'));
 
 //ROUTES
 app.get('/', async (req, res) => {
@@ -67,11 +69,16 @@ app.get('/photos/edit/:id', async (req, res) => {
     photograp,
   });
 });
+app.put('/photos/:id', async (req, res) => {
+  const photograp = await photo.findOne({ _id: req.params.id });
+  photo.photograp = req.body.title
+  photo.photograp = req.body.description
+  photograp.save()
+
+  res.redirect("/")
+});
 
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server ${port} portunda dinleniyor`);
 });
-
-
-//8:30 
