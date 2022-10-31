@@ -61,10 +61,10 @@
 							<!-- Share box -->
 							<div class="tm-bg-gray tm-share-box">
 								<div class="text-center">
-									<a href="/photos/edit/<%= photo._id %>" class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"><span>Update Details</span></a>	
+									<a href="edit/<%= photo._id %> " class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"><span>Update Details</span></a>	
 								</div>	
 								<div class="text-center">
-									<a class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download" ><span>Delete Photo</span></a>	
+									<a href="/photo/<%= photo._id %>?_method=DELETE" onclick=" return confirm('Silinecek')" class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download"><span>Delete Photo</span></a>	
 								</div>								
 							</div>
 						</div>
@@ -74,6 +74,8 @@
 				<!-- Subscribe form and footer links -->
                 <%- include ('partials/_footer.ejs') %> 
                 <!-- row -->
+
+               
 			</div> <!-- .tm-content-container -->
 		</div>
 	</div>
