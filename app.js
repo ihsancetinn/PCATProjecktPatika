@@ -13,7 +13,7 @@ const app = express();
 //Database connect
 mongoose
   .connect(
-    'mongodb+srv://ihsan:505050@cluster0.qtfpspr.mongodb.net/pcat-db?retryWrites=true&w=majority'
+    'mongodb+srv://ihsan:505050@cluster0.qtfpspr.mongodb.net/?retryWrites=true&w=majority'
   )
   .then(() => {
     console.log('Connected DB');
