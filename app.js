@@ -1,17 +1,26 @@
 const ejs = require('ejs'),
-      express = require('express'),
-      mongoose = require('mongoose'),
-      fileUpload = require('express-fileupload'),
-      methodOverride = require('method-override');
+  express = require('express'),
+  mongoose = require('mongoose'),
+  fileUpload = require('express-fileupload'),
+  methodOverride = require('method-override');
 
 const photo = require('./models/Photo'), // oluşturduğum schemayı aldım
-      photoController = require('./controllers/photoController'),
-      pageController = require('./controllers/pageController');
+  photoController = require('./controllers/photoController'),
+  pageController = require('./controllers/pageController');
 
 const app = express();
 
 //Database connect
-mongoose.connect('mongodb://localhost/pcat-test-db');
+mongoose
+  .connect(
+    'mongodb+srv://ihsan:505050@cluster0.qtfpspr.mongodb.net/pcat-db?retryWrites=true&w=majority'
+  )
+  .then(() => {
+    console.log('Connected DB');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //VİEW ENGİNE
 app.set('view engine', 'ejs');
@@ -34,7 +43,7 @@ app.delete('/photo/:photo_id', photoController.photoDelete);
 app.get('/about', pageController.getAboutPage);
 app.get('/add', pageController.getAddPage);
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server ${port} portunda dinleniyor`);
 });
